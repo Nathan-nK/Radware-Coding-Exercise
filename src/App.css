@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+.searchBar {
+  width: 80%;
+  height: 1.5vw;
+  margin-top: 1vw;
+}
+
+.searchButton{
+  width: 5vw;
+  height: 1.7vw;
+  margin-top: 1vw;
+  margin-left: 0.5vw;
+  box-shadow: 0.3vw 0.3vw #747272;
+}
