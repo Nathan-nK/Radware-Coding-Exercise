@@ -1,17 +1,20 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Search from './search'
+import { observable } from 'mobx'
 
-class Comp extends Component {
+class ImageWall extends Component {
+    openImage = (url) => {
+        // window.open(url, '_blank');
+        console.log(url)
+    }
     render() {
-        
-        return (
-            <div id="Comp">
 
+        return (
+            <div className="ImageWallBox">
+                {this.props ? this.props.images.map(i => <img src={i} className='image' onClick={this.openImage(i)}></img>) : null}
             </div>
         )
     }
 }
 
-export default Comp
+export default ImageWall

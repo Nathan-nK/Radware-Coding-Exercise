@@ -1,0 +1,21 @@
+.ImageWallBox{
+    width: 70.5vw;
+    height: 38vw;
+    border: 0.1vw solid black;
+    margin: 1vw;
+}
+
+.image {
+    width: 20vw;
+    height: 15vw;
+    padding: 1.5vw;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.image:hover {
+    width: 21vw;
+    height: 16vw;
+    box-shadow: 0.3vw 0.3vw 0.3vw 0.3vw #186839;
+    transition: 0.3s;
+}

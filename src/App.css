@@ -1,11 +1,16 @@
+body{
+  background-color: #2ecc71;
+}
+
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .searchBar {
-  width: 80%;
+  width: 65%;
   height: 1.5vw;
   margin-top: 1vw;
+  margin-left: 1vw;
 }
 
 .searchButton{
@@ -13,5 +18,12 @@
   height: 1.7vw;
   margin-top: 1vw;
   margin-left: 0.5vw;
-  box-shadow: 0.3vw 0.3vw #747272;
+  box-shadow: 0.3vw 0.3vw 0.3vw #186839;
+  cursor: pointer;
+}
+
+.picBoxes {
+  display: flex;
+  flex-direction: row;
+  background-color: #2ecc71;
 }
