@@ -1,8 +1,9 @@
 .ImageWallBox{
     width: 70.5vw;
-    height: 38vw;
-    border: 0.1vw solid black;
+    height: 37.5vw;
     margin: 1vw;
+    box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
+    background-color: #21a056;
 }
 
 .image {

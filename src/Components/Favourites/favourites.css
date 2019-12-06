@@ -3,9 +3,15 @@
     margin-top: 1vw;
     width: 20vw;
     height: 30vw;
-    border: 0.1vw solid black;
+    box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
+    background-color: #21a056;
 }
 
 .favTitle{
     text-align: center;
+}
+
+.favPic{
+    width: 10vw;
+    height:10vw;
 }
