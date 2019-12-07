@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.6.0",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
+    "@babel/plugin-transform-react-jsx-self": "^7.7.4",
     "@svgr/webpack": "4.3.2",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
