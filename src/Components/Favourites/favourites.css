@@ -1,7 +1,7 @@
 .favouriteBox{
-    margin-left: 5%;
+    margin-left: 1%;
     margin-top: 1vw;
-    width: 20vw;
+    width: 25vw;
     height: 30vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
     background-color: #21a056;
@@ -12,6 +12,48 @@
 }
 
 .favPic{
-    width: 10vw;
-    height:10vw;
+    width: 6vw;
+    height:5vw;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.favPic:hover{
+    width: 5.5vw;
+    height:4.5vw;
+    margin: 0.2vw;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.FavItem {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    height: 5vw;
+    border: 0.2vw solid black;
+    margin-top: 0.5vw;
+    margin-left: 0.5vw;
+}
+
+.fa-edit {
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-left: 2.5vw;
+    color: #0652DD;
+    cursor: pointer;
+}
+
+.fa-trash-alt {
+    font-size: 2vw;
+    margin-top: 1vw;
+    margin-left: 1vw;
+    color: #d11a2a;
+    cursor: pointer;
+}
+
+.DescBox{
+    margin-top: 1vw;
+    font-size: 1vw;
+
 }

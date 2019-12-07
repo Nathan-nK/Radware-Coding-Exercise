@@ -1,4 +1,8 @@
 .ImageWallBox{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: ". . ." ". . .";
     width: 70.5vw;
     height: 37.5vw;
     margin: 1vw;
@@ -19,4 +23,24 @@
     height: 16vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.3vw #186839;
     transition: 0.3s;
+}
+
+.FavButtons{
+    margin-left: 2vw;
+
+}
+
+.fa-star {
+    position: absolute;
+    font-size: 2vw;
+    margin: 2vw;
+    color: #f1c40f;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.fa-star:hover {
+    font-size: 2.5vw;
+    transition: 0.2s;
+    color: #e67e22; 
 }

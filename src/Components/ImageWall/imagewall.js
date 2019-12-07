@@ -12,16 +12,21 @@ class ImageWall extends Component {
             category: "name",
         }
     }
+
     openImage = async (e) => {
-        // console.log(e.target.getAttribute("value"));
         window.open(e.target.getAttribute("value"), '_blank');
+    }
+
+    AddToFave = async (e) => {
         await this.props.favestore.AddFav(e.target.getAttribute("value"))
     }
+
     render() {
 
         return (
             <div className="ImageWallBox">
-                {this.props ? this.props.images.map(i => <img src={i} className='image' value={i} onClick={e => this.openImage(e)}></img>) : null}
+                {this.props ? this.props.images.map(i => <div><i class="far fa-star" value={i} onClick={e => this.AddToFave(e)}></i>
+                    <img src={i} className='image' value={i} onClick={e => this.openImage(e)}></img></div>) : null}
             </div>
         )
     }
