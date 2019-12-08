@@ -1,8 +1,7 @@
 .favouriteBox{
     margin-left: 1%;
-    margin-top: 1vw;
     width: 25vw;
-    height: 37.5vw;
+    height: 40vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
     background-color: #21a056;
 }
@@ -36,10 +35,15 @@
     margin-left: 0.5vw;
 }
 
+.FavButtons{
+    position: absolute;
+    padding-left: 15vw;
+}
+
 .fa-edit {
+    position: absolute;
     font-size: 2vw;
-    margin-top: 1vw;
-    margin-left: 2.5vw;
+    margin-top: 1.3vw;
     color: #0652DD;
     cursor: pointer;
     transition: 0.2s;
@@ -51,9 +55,10 @@
 }
 
 .fa-trash-alt {
+    position: absolute;
     font-size: 2vw;
-    margin-top: 1vw;
-    margin-left: 1vw;
+    margin-top: 1.3vw;
+    margin-left: 4vw;
     color: #d11a2a;
     cursor: pointer;
     transition: 0.2s;
@@ -65,7 +70,8 @@
 }
 
 .DescBox{
-    margin-top: 1vw;
-    font-size: 1vw;
-
+    margin-left: 0.5vw;
+    margin-top: 0.5vw;
+    font-size: 0.8vw;
+    width: 35%;
 }

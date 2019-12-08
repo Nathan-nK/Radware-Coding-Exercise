@@ -7,7 +7,7 @@ import { observable } from 'mobx'
 class Favourites extends Component {
     async componentDidMount() {
         // this.setState({images: this.props.favestore.GetFavList()})
-        console.log(this.props.favestore.GetFavList())
+        // console.log(this.props.favestore.GetFavList())
         let images = await this.props.favestore.GetFavList()
         console.log(images)
         await this.setState({ images: images })
@@ -16,7 +16,7 @@ class Favourites extends Component {
         super()
         this.state = {
             images: [],
-
+            editable: false,
         }
     }
 
@@ -28,6 +28,10 @@ class Favourites extends Component {
         await this.props.favestore.RemoveFav(e.target.getAttribute("value"))
     }
 
+    editDesc = async () => {
+        
+    }
+
     render() {
 
         return (
@@ -35,12 +39,12 @@ class Favourites extends Component {
                 <h2 className='favTitle'>Favourites List</h2>
 
                 {this.state.images.map(i => <div className="FavItem">
-                    <img className='favPic' src={i} value={i} onClick={e => this.openFavImage(e)}></img>
-                    <span className='DescBox' value={i}>Description Here</span>
+                    <img className='favPic' src={i.url} value={i.url} onClick={e => this.openFavImage(e)}></img>
+                    <span className='DescBox' value={i.url}>{i.desc}</span>
 
                     <div className='FavButtons'>
-                        <i class="fas fa-edit" value={i}></i>
-                        <i class="fas fa-trash-alt" value={i} onClick={e => this.removeFavImage(e)}></i></div>
+                        <i class="fas fa-edit" value={i.url} onClick={this.editDesc}></i>
+                        <i class="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
                 </div>)}
 
             </div>
