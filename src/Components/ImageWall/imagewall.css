@@ -34,13 +34,13 @@
     position: absolute;
     font-size: 2vw;
     margin: 2vw;
-    color: #f1c40f;
+    color: #b8960f;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .fa-star:hover {
-    font-size: 2.5vw;
+    font-size: 2.2vw;
     transition: 0.2s;
-    color: #e67e22; 
+    color: #f1c40f; 
 }

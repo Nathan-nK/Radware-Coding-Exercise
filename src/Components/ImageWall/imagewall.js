@@ -18,7 +18,13 @@ class ImageWall extends Component {
     }
 
     AddToFave = async (e) => {
-        await this.props.favestore.AddFav(e.target.getAttribute("value"))
+        for (let i = 0; i<this.props.favestore.favList.length; i++) {
+            if(this.props.favestore.favList[i] == e.target.getAttribute("value")) {
+               return alert("Picture Already in Favourites")
+            }
+        }
+         await this.props.favestore.AddFav(e.target.getAttribute("value"))
+
     }
 
     render() {

@@ -2,7 +2,7 @@
     margin-left: 1%;
     margin-top: 1vw;
     width: 25vw;
-    height: 30vw;
+    height: 37.5vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
     background-color: #21a056;
 }
@@ -42,6 +42,12 @@
     margin-left: 2.5vw;
     color: #0652DD;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.fa-edit:hover{
+    color: rgb(7, 59, 156);
+    transition: 0.2s;
 }
 
 .fa-trash-alt {
@@ -50,6 +56,12 @@
     margin-left: 1vw;
     color: #d11a2a;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.fa-trash-alt:hover {
+    color: #8a121c;
+    transition: 0.2s;
 }
 
 .DescBox{

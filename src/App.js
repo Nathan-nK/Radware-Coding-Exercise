@@ -40,7 +40,8 @@ class App extends Component {
     let randoms = {}
     let datas = await axios.get(`https://pixabay.com/api/?key=${API_KEY}&q=${searchVal}&image_type=photo`)
     let hits = datas.data.hits
-    
+
+
     let i = 0
     if (hits.length >= 6) {
       while (i < 6) {
@@ -52,11 +53,9 @@ class App extends Component {
         }
       }
     }
-
     else if (hits.length == 0) {
       alert('No Results Found :(')
     }
-
     else {
       for (let url of hits) {
         images.push(url.largeImageURL)
@@ -64,6 +63,7 @@ class App extends Component {
     }
     await this.setState({ images: images })
   }
+
 
   render() {
     return (
