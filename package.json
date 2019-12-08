@@ -134,9 +134,6 @@
     ]
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ],
     "plugins": [
       [
         "@babel/plugin-proposal-decorators",
@@ -144,9 +141,12 @@
           "legacy": true
         }
       ]
+    ],
+    "presets": [
+      "react-app"
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.1.2"
+    "@babel/plugin-proposal-decorators": "^7.7.4"
   }
 }
