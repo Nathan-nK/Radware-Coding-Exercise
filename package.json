@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "7.6.0",
+    "@babel/plugin-proposal-decorators": "^7.7.4",
     "@babel/plugin-transform-react-jsx": "^7.7.4",
     "@babel/plugin-transform-react-jsx-self": "^7.7.4",
     "@svgr/webpack": "4.3.2",
@@ -146,7 +147,5 @@
       "react-app"
     ]
   },
-  "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.7.4"
-  }
+  "devDependencies": {}
 }
