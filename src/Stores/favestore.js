@@ -6,7 +6,7 @@ export class FaveStore {
 
     @action
     async AddFav(data) {
-        this.favList.push({url: data, desc: "Description"})
+        this.favList.push({url: data, desc: ""})
         console.log(this.favList)
     }
 
