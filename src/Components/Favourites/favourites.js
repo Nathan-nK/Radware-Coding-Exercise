@@ -6,12 +6,11 @@ import { observable } from 'mobx'
 @observer
 class Favourites extends Component {
     async componentDidMount() {
-        // this.setState({images: this.props.favestore.GetFavList()})
-        // console.log(this.props.favestore.GetFavList())
         let images = await this.props.favestore.GetFavList()
         console.log(images)
         await this.setState({ images: images })
     }
+    
     constructor() {
         super()
         this.state = {
@@ -39,8 +38,17 @@ class Favourites extends Component {
         this.setState({newDesc: ''})
     }
 //////////////
+
     openFavImage = async (e) => {
-        window.open(e.target.getAttribute("value"), '_blank');
+        let url = e.target.getAttribute("value")
+        document.getElementById("PicPopupImg").src = url
+        let PicPopup = document.getElementById("PicPopup");
+        PicPopup.style.display = "block";
+    }
+
+    closePic = async () => {
+        let modal = document.getElementById("PicPopup");
+        modal.style.display = "none";
     }
 
     removeFavImage = async (e) => {
@@ -67,16 +75,17 @@ class Favourites extends Component {
                     <div className='FavButtons'>
                         <i class="fas fa-edit" value={i.url} onClick={e => this.handleEditClick(e)}></i>
                         <i class="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
+
+                        <div id="PicPopup" className="PicPopup">
+                        <div className="PicPopup-content">
+                            <span className="closePic" onClick={this.closePic}>&times;</span>
+                            <img id='PicPopupImg' className='PicPopupImg' src={i.url}></img>
+                        </div>
+                    </div>
+
                 </div>)}
 
-                {/* <div id="editModal" className="editModal">
-                    <div className="editModal-content">
-                        <span className="close" onClick={this.closeModal}>&times;</span>
-                        <div>Type Your Description Here:</div>
-                        <textarea type="text" className='DescInpt' onChange={this.updateDescInpt}></textarea>
-                        <button className="AddDescBtn" onClick={e => this.AddToFave(e)}>Add</button>
-                    </div>
-                </div> */}
+
 
             </div>
         )

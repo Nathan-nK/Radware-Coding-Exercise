@@ -15,8 +15,12 @@ class ImageWall extends Component {
     }
 
     openImage = async (e) => {
-        window.open(e.target.getAttribute("value"), '_blank');
+        let url = e.target.getAttribute("value")
+        document.getElementById("PicPopupImg").src = url
+        let PicPopup = document.getElementById("PicPopup");
+        PicPopup.style.display = "block";
     }
+
 
     // checkIfInFaves = async (e) => {
     //     document.getElementsByClassName("fa-star").style.color = "blue";
@@ -28,10 +32,10 @@ class ImageWall extends Component {
                 let alertmodal = document.getElementById("alertModal");
                 return alertmodal.style.display = "block";
 
-            } 
+            }
         }
         this.setState({ currentUrl: e.target.getAttribute("value") })
-        let modal = document.getElementById("myModal");
+        let modal = document.getElementById("FavModal");
         modal.style.display = "block";
     }
 
@@ -42,9 +46,9 @@ class ImageWall extends Component {
                 return alertmodal.style.display = "block";
             }
         }
-        
 
-        let modal = document.getElementById("myModal");
+
+        let modal = document.getElementById("FavModal");
         let url = this.state.currentUrl
         let desc = this.state.desc
         await this.props.favestore.AddFav(url, desc)
@@ -57,10 +61,8 @@ class ImageWall extends Component {
         })
     }
 
-
-
-    closeModal = async () => {
-        let modal = document.getElementById("myModal");
+    closeFavModal = async () => {
+        let modal = document.getElementById("FavModal");
         modal.style.display = "none";
     }
 
@@ -69,6 +71,10 @@ class ImageWall extends Component {
         modal.style.display = "none";
     }
 
+    closePic = async () => {
+        let modal = document.getElementById("PicPopup");
+        modal.style.display = "none";
+    }
 
 
     render() {
@@ -77,11 +83,21 @@ class ImageWall extends Component {
             <div className="ImageWallBox">
 
                 {this.props ? this.props.images.map(i => <div><i className="far fa-star" value={i} onClick={e => this.OpenFavTab(e)}></i>
-                    <img src={i} className='image' value={i} onClick={e => this.openImage(e)}></img> </div>) : null}
+                    <img src={i} className='image' value={i} onClick={e => this.openImage(e)}></img>
 
-                <div id="myModal" className="modal">
-                    <div className="modal-content">
-                        <span className="close" onClick={this.closeModal}>&times;</span>
+
+                    <div id="PicPopup" className="PicPopup">
+                        <div className="PicPopup-content">
+                            <span className="closePic" onClick={this.closePic}>&times;</span>
+                            <img id='PicPopupImg' className='PicPopupImg' src={i.url}></img>
+                        </div>
+                    </div>
+
+                </div>) : null}
+
+                <div id="FavModal" className="FavModal">
+                    <div className="FavModal-content">
+                        <span className="closeFavModal" onClick={this.closeFavModal}>&times;</span>
                         <div className='DescAddTitle'>Type Your Description Here:</div>
                         <textarea type="text" className='DescInpt' onChange={this.updateDescInpt}></textarea>
                         <button className="AddDescBtn" onClick={e => this.AddToFave(e)}>Add</button>
@@ -94,6 +110,7 @@ class ImageWall extends Component {
                         <div className="alertLine">This Picture is Already in Your Favourites!</div>
                     </div>
                 </div>
+
 
             </div>
         )
