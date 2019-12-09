@@ -5,15 +5,11 @@ export class FaveStore {
     @observable favList = []
 
     @action
-    async AddFav(data) {
-        this.favList.push({url: data, desc: ""})
-        console.log(this.favList)
+    async AddFav(url, desc) {
+        this.favList.push({url: url, desc: desc})
     }
 
-    @action
-    async AddDesc(url, desc) {
-        this.favList.find((o) => o.url === url).desc = desc;
-    }
+
 
     @action
     async RemoveFav(data) {
@@ -26,8 +22,8 @@ export class FaveStore {
     }
 
     @action
-    async EditDesc(string) {
-
+    async EditDesc(url, desc) {
+        this.favList.find((o) => o.url === url).desc = desc;
     }
 
     @action

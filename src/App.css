@@ -11,15 +11,21 @@ body{
   height: 1.5vw;
   margin-top: 1vw;
   margin-left: 1vw;
+  font-family: Open Sans;
+  font-weight: bold;
+  font-size: 1.2vw;
 }
 
 .searchButton{
-  width: 5vw;
-  height: 1.7vw;
+  width: 5.2vw;
+  height: 2vw;
   margin-top: 1vw;
   margin-left: 0.5vw;
   box-shadow: 0.3vw 0.3vw 0.3vw #186839;
   cursor: pointer;
+  font-family: Open Sans;
+  font-weight: bold;
+  font-size: 1.2vw;
 }
 
 .picBoxes {

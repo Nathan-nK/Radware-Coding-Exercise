@@ -8,6 +8,7 @@
 
 .favTitle{
     text-align: center;
+    font-family: Solway;
 }
 
 .favPic{
@@ -30,7 +31,7 @@
     flex-direction: row;
     width: 95%;
     height: 5vw;
-    border: 0.2vw solid black;
+    border: 0.13vw solid black;
     margin-top: 0.5vw;
     margin-left: 0.5vw;
 }
@@ -74,4 +75,66 @@
     margin-top: 0.5vw;
     font-size: 0.8vw;
     width: 35%;
+    font-family: Open Sans;
+    font-weight: bold;
 }
+
+.editDescBox {
+    width : 80%;
+    height: 4vw;
+    margin-top: 0.3vw;
+    margin-left: 0.2vw;
+    background-color: #66d695;
+    font-family: Open Sans;
+    font-size: 0.73vw;
+    font-weight: bold;
+}
+
+.saveNewDescBtn {
+    position: absolute;
+    margin-top: 2vw;
+    margin-left: 0.3vw;
+    box-shadow: 0.3vw 0.3vw 0.3vw #186839;
+}
+
+
+
+.editModal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  
+  .editModal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 1vw;
+    border: 1px solid #888;
+    width: 25%; 
+    height: 27%;
+    background-color: #21a056;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
