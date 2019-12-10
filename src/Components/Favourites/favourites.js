@@ -5,10 +5,12 @@ import { observable } from 'mobx'
 @inject("favestore")
 @observer
 class Favourites extends Component {
+    
     async componentDidMount() {
+        await this.props.favestore.resetFave()
         let images = await this.props.favestore.GetFavList()
-        console.log(images)
         await this.setState({ images: images })
+        console.log(images)
     }
 
     constructor() {
@@ -16,12 +18,18 @@ class Favourites extends Component {
         this.state = {
             images: [],
             newDesc: '',
-            editModeEnabled: false,
         }
     }
-/////////////
-    handleEditClick() {
-        this.setState({ editModeEnabled: !this.state.editModeEnabled });
+    /////////////
+    handleEditClick = async (e) => {
+        for (let i = 0; i < this.props.favestore.favList.length; i++) {
+            if (this.props.favestore.favList[i].isEditable == true) {
+                let modal = document.getElementById("FavError");
+                return modal.style.display = "block";
+                
+            }
+        }
+        await this.props.favestore.OpenDescEdit(e.target.getAttribute("value"))
     }
 
     updateDescInpt = (e) => {
@@ -34,10 +42,14 @@ class Favourites extends Component {
         let url = e.target.getAttribute("value")
         let newDesc = this.state.newDesc
         this.props.favestore.EditDesc(url, newDesc)
-        this.setState({ editModeEnabled: !this.state.editModeEnabled });
-        this.setState({newDesc: ''})
+        this.props.favestore.OpenDescEdit(e.target.getAttribute("value"))
+        this.setState({ newDesc: '' })
     }
-//////////////
+
+    CancelNewDesc(e) {
+        this.props.favestore.OpenDescEdit(e.target.getAttribute("value"))
+    }
+    //////////////
 
     openFavImage = async (e) => {
         let url = e.target.getAttribute("value")
@@ -51,6 +63,11 @@ class Favourites extends Component {
         modal.style.display = "none";
     }
 
+    closeError = async () => {
+        let modal = document.getElementById("FavError");
+        modal.style.display = "none";
+    }
+
     removeFavImage = async (e) => {
         await this.props.favestore.RemoveFav(e.target.getAttribute("value"))
         this.setState({ editModeEnabled: false });
@@ -59,25 +76,32 @@ class Favourites extends Component {
     render() {
 
         return (
-            <div className="favouriteBox" style={{ height: `${this.state.images.length * 5 + (0.5 * this.state.images.length)+  6}vw` }}>
-                
+            <div className="favouriteBox" style={{ height: `${this.state.images.length * 5 + (0.5 * this.state.images.length) + 6}vw` }}>
+
                 <h2 className='favTitle'>Favourites List</h2>
 
                 {this.state.images.map(i => <div className="FavItem">
                     <img className='favPic' src={i.url} value={i.url} onClick={e => this.openFavImage(e)}></img>
-                    {this.state.editModeEnabled ? 
-                    <div>
-                        <textarea className='editDescBox' onChange={e => this.updateDescInpt(e)}>{this.state.newDesc}</textarea> 
-                        <button className='saveNewDescBtn' value={i.url} onClick={e => this.saveNewDesc(e)}>Save</button>
-                    </div>
+                    {i.isEditable ?
+                        <div>
+                            <textarea className='editDescBox' id='editDescBox' name={i.desc} onChange={e => this.updateDescInpt(e)}></textarea>
 
-                    : <span className='DescBox' value={i.url}>{i.desc}</span>}
+                            <div className='EditButtons'>
+                            <i class="fas fa-save"  value={i.url} onClick={e => this.saveNewDesc(e)}></i>
+                            <i class="fas fa-window-close" value={i.url} onClick={e => this.CancelNewDesc(e)}></i>
+                            </div>
+                        </div>
 
-                    <div className='FavButtons'>
-                        <i class="fas fa-edit" value={i.url} onClick={e => this.handleEditClick(e)}></i>
-                        <i class="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
+                        : <div className='DescButtons'>
+                            <p className='DescBox' value={i.url}>{i.desc}</p>
+                            <div className='FavButtons'>
+                            <i class="fas fa-edit" id='editButton' value={i.url} data={i.desc} onClick={e => { this.handleEditClick(e) }}></i>
+                            <i class="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
+                            </div>}
 
-                        <div id="PicPopup" className="PicPopup">
+
+
+                    <div id="PicPopup" className="PicPopup" onClick={this.closePic}>
                         <div className="PicPopup-content">
                             <span className="closePic" onClick={this.closePic}>&times;</span>
                             <img id='PicPopupImg' className='PicPopupImg' src={i.url}></img>
@@ -86,6 +110,12 @@ class Favourites extends Component {
 
                 </div>)}
 
+                <div id="FavError" className="FavError" onClick={this.closeError}>
+                        <div className="FavError-content">
+                            <span className="closeFavError" onClick={this.closeError}>&times;</span>
+                            <div className="alertLine">You Can Only Edit One Item at a Time!</div>
+                        </div>
+                    </div>
 
 
             </div>

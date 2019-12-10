@@ -75,6 +75,7 @@ class ImageWall extends Component {
         let modal = document.getElementById("PicPopup");
         modal.style.display = "none";
     }
+    
 
 
     render() {
@@ -86,7 +87,7 @@ class ImageWall extends Component {
                     <img src={i} className='image' value={i} onClick={e => this.openImage(e)}></img>
 
 
-                    <div id="PicPopup" className="PicPopup">
+                    <div id="PicPopup" className="PicPopup" onClick={this.closePic}>
                         <div className="PicPopup-content">
                             <span className="closePic" onClick={this.closePic}>&times;</span>
                             <img id='PicPopupImg' className='PicPopupImg' src={i.url}></img>
@@ -95,16 +96,16 @@ class ImageWall extends Component {
 
                 </div>) : null}
 
-                <div id="FavModal" className="FavModal">
+                <div id="FavModal" className="FavModal" onClick={this.exitModal}>
                     <div className="FavModal-content">
                         <span className="closeFavModal" onClick={this.closeFavModal}>&times;</span>
                         <div className='DescAddTitle'>Type Your Description Here:</div>
                         <textarea type="text" className='DescInpt' onChange={this.updateDescInpt}></textarea>
-                        <button className="AddDescBtn" onClick={e => this.AddToFave(e)}>Add</button>
+                        <button className="AddDescBtn" onClick={e => this.AddToFave(e)}>Add to Favourites</button>
                     </div>
                 </div>
 
-                <div id="alertModal" className="alertModal" >
+                <div id="alertModal" className="alertModal" onClick={this.closeAlert} >
                     <div className="alertModal-content">
                         <span className="close" onClick={this.closeAlert}>&times;</span>
                         <div className="alertLine">This Picture is Already in Your Favourites!</div>

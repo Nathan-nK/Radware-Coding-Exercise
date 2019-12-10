@@ -4,6 +4,7 @@
     height: 40vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
     background-color: #21a056;
+    border-radius: 0.2vw;
 }
 
 .favTitle{
@@ -38,7 +39,8 @@
 
 .FavButtons{
     position: absolute;
-    padding-left: 15vw;
+    padding-left: 9vw;
+    padding-bottom: 1vw;
 }
 
 .fa-edit {
@@ -70,17 +72,26 @@
     transition: 0.2s;
 }
 
+.DescButtons {
+    width: 30vw;
+    height: 35%;
+}
+
 .DescBox{
-    margin-left: 0.5vw;
-    margin-top: 0.5vw;
+    position: absolute;
+    margin-left: 0.2vw;
+    margin-top: 0.2vw;
     font-size: 0.8vw;
-    width: 35%;
+    width: 10%;
+    height: 9%;
     font-family: Open Sans;
     font-weight: bold;
+    word-wrap: break-word;
 }
 
 .editDescBox {
-    width : 80%;
+    position: absolute;
+    width : 10%;
     height: 4vw;
     margin-top: 0.3vw;
     margin-left: 0.2vw;
@@ -90,14 +101,45 @@
     font-weight: bold;
 }
 
-.saveNewDescBtn {
+.fa-save {
     position: absolute;
-    margin-top: 2vw;
-    margin-left: 0.3vw;
-    box-shadow: 0.3vw 0.3vw 0.3vw #186839;
+    font-size: 2vw;
+    margin-top: 1.3vw;
+    color: #0652DD;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
+.fa-save:hover{
+    color: rgb(7, 59, 156);
+    transition: 0.2s;
+}
 
+.fa-window-close {
+    position: absolute;
+    font-size: 2vw;
+    margin-top: 1.3vw;
+    margin-left: 4vw;
+    color: #d11a2a;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.fa-window-close:hover {
+    color: #8a121c;
+    transition: 0.2s;
+}
+
+.EditButtons {
+    position: absolute;
+    width : 8%;
+    height: 4vw;
+    margin-top: 0.1vw;
+    margin-left: 11vw;
+    font-family: Open Sans;
+    font-size: 0.73vw;
+    font-weight: bold;
+}
 
 .editModal {
     display: none; 
@@ -125,20 +167,19 @@
     animation-duration: 0.4s
   }
   
-  .close {
+  .closeFavError {
     color: #aaa;
     float: right;
     font-size: 2vw;
     font-weight: bold;
   }
   
-  .close:hover,
-  .close:focus {
+  .closeFavError:hover,
+  .closeFavError:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
   }
-
 
 
 
@@ -183,4 +224,45 @@
     position: absolute;
     margin-top: 1.5vw;
     margin-right: 30vw;
+  }
+
+
+
+  .FavError {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
+  }
+  
+  
+  .FavError-content {
+    background-color: #fefefe;
+    margin: 2% auto; 
+    padding: 1vw;
+    padding: 1vw;
+    border: 1px solid #888;
+    width: 30%; 
+    height: 3%;
+    background-color: #21a056;
+    border-radius: 0.5vw;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+  }
+
+  @keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+  }
+
+  .alertLine {
+      font-size: 1.4vw;
+      font-family: Solway;
+      font-weight: bold;
   }

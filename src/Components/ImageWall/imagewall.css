@@ -8,6 +8,8 @@
     margin: 1vw;
     box-shadow: 0.3vw 0.3vw 0.3vw 0.1vw #186839;
     background-color: #21a056;
+    border-radius: 0.5vw;
+
 }
 
 .image {
@@ -65,11 +67,12 @@
     margin: 15% auto; 
     padding: 1vw;
     border: 1px solid #888;
-    width: 25%; 
-    height: 28%;
+    width: 20%; 
+    height: 23%;
     background-color: #21a056;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 0.5vw;
   }
   
   .closeFavModal {
@@ -88,18 +91,30 @@
 
   .DescInpt{
       width: 20vw;
-      height: 10vw;
+      height: 6vw;
       margin-top: 0.5vw;
       background-color: #66d695;
       font-family: Open Sans;
       font-size: 1.15vw;
+      border-radius: 0.2vw;
   }
 
   .AddDescBtn{
-      width: 5vw;
+      width: 10.5vw;
       height: 1.5vw;
       font-family: Open Sans;
       font-weight: bold;
+      font-size: 1.2vw;
+      cursor: pointer;
+      border: none;
+      border-radius: 0.2vw;
+      background-color: #62e99a;
+      transition: 0.2s;
+  }
+
+  .AddDescBtn:hover {
+    background-color: #4fce84;
+    transition: 0.2s;
   }
 
   .DescAddTitle{
@@ -125,14 +140,29 @@
   
   .alertModal-content {
     background-color: #fefefe;
-    margin: 15% auto; 
+    margin: 2% auto; 
     padding: 1vw;
     border: 1px solid #888;
-    width: 15%; 
-    height: 13%;
+    width: 30%; 
+    height: 3%;
     background-color: #21a056;
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    border-radius: 0.5vw;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   @keyframes animatetop {
@@ -141,7 +171,7 @@
   }
 
   .alertLine {
-      font-size: 1.8vw;
+      font-size: 1.4vw;
       font-family: Solway;
       font-weight: bold;
   }

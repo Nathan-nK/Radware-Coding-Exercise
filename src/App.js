@@ -72,7 +72,7 @@ class App extends Component {
 
           <div className="searchbar">
             <input className='searchBar' placeholder='Search for Images' onChange={this.updateInput}></input>
-            <button className='searchButton' onClick={this.searchInput}>Search</button>
+            <button className='searchButton' onClick={this.searchInput}><i class="fas fa-search"></i></button>
           </div>
 
           <div className='picBoxes'>
