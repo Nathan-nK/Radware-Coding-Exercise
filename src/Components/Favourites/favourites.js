@@ -10,7 +10,7 @@ class Favourites extends Component {
         console.log(images)
         await this.setState({ images: images })
     }
-    
+
     constructor() {
         super()
         this.state = {
@@ -59,7 +59,8 @@ class Favourites extends Component {
     render() {
 
         return (
-            <div className="favouriteBox">
+            <div className="favouriteBox" style={{ height: `${this.state.images.length * 5 + (0.5 * this.state.images.length)+  4.5}vw` }}>
+                
                 <h2 className='favTitle'>Favourites List</h2>
 
                 {this.state.images.map(i => <div className="FavItem">
