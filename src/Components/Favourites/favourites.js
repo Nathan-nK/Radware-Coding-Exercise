@@ -59,7 +59,7 @@ class Favourites extends Component {
     render() {
 
         return (
-            <div className="favouriteBox" style={{ height: `${this.state.images.length * 5 + (0.5 * this.state.images.length)+  4.5}vw` }}>
+            <div className="favouriteBox" style={{ height: `${this.state.images.length * 5 + (0.5 * this.state.images.length)+  6}vw` }}>
                 
                 <h2 className='favTitle'>Favourites List</h2>
 
