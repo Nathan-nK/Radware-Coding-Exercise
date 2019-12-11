@@ -88,16 +88,16 @@ class Favourites extends Component {
                             <textarea className='editDescBox' id='editDescBox' name={i.desc} onChange={e => this.updateDescInpt(e)}></textarea>
 
                             <div className='EditButtons'>
-                            <i class="fas fa-save"  value={i.url} onClick={e => this.saveNewDesc(e)}></i>
-                            <i class="fas fa-window-close" value={i.url} onClick={e => this.CancelNewDesc(e)}></i>
+                            <i className="fas fa-save"  value={i.url} onClick={e => this.saveNewDesc(e)}></i>
+                            <i className="fas fa-window-close" value={i.url} onClick={e => this.CancelNewDesc(e)}></i>
                             </div>
                         </div>
 
                         : <div className='DescButtons'>
                             <p className='DescBox' value={i.url}>{i.desc}</p>
                             <div className='FavButtons'>
-                            <i class="fas fa-edit" id='editButton' value={i.url} data={i.desc} onClick={e => { this.handleEditClick(e) }}></i>
-                            <i class="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
+                            <i className="fas fa-edit" id='editButton' value={i.url} data={i.desc} onClick={e => { this.handleEditClick(e) }}></i>
+                            <i className="fas fa-trash-alt" value={i.url} onClick={e => this.removeFavImage(e)}></i></div>
                             </div>}
 
 
