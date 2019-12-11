@@ -36,13 +36,35 @@
     position: absolute;
     font-size: 2vw;
     margin: 2vw;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #b8960f;
+}
+
+.fa-star:hover {
+    font-size: 2.2vw;
+    transition: 0.2s;
+    color: #f1c40f; 
+}
+
+#starTrue {
+    color: #2ecc71;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#starTrue:hover {
+    transition: 0.2s;
+    color: #2ecc71; 
+}
+
+#starFalse {
     color: #b8960f;
     cursor: pointer;
     transition: 0.2s;
 }
 
-.fa-star:hover {
-    font-size: 2.2vw;
+#starFalse:hover {
     transition: 0.2s;
     color: #f1c40f; 
 }

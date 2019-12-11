@@ -11,6 +11,7 @@ class Favourites extends Component {
         let images = await this.props.favestore.GetFavList()
         await this.setState({ images: images })
         console.log(images)
+        let faveList = this.props.favestore.favList
     }
 
     constructor() {

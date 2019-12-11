@@ -14,6 +14,7 @@ class ImageWall extends Component {
         }
     }
 
+
     openImage = async (e) => {
         let url = e.target.getAttribute("value")
         document.getElementById("PicPopupImg").src = url
@@ -22,9 +23,23 @@ class ImageWall extends Component {
     }
 
 
-    // checkIfInFaves = async (e) => {
-    //     document.getElementsByClassName("fa-star").style.color = "blue";
-    // }
+    checkIfInFaves = async (url) => {
+        // document.getElementsByClassName("fa-star").style.color = "blue";
+        if (await this.props.favestore.favList.find((o) => o.url === url)) {
+            console.log(true)
+            let pos = true;
+            return pos
+
+        }
+
+        else {
+            console.log(false)
+            let neg = false
+            return neg
+        }
+
+
+    }
 
     OpenFavTab = async (e) => {
         for (let i = 0; i < this.props.favestore.favList.length; i++) {
@@ -75,8 +90,8 @@ class ImageWall extends Component {
         let modal = document.getElementById("PicPopup");
         modal.style.display = "none";
     }
-    
 
+    // style={{color: `${this.checkIfInFaves(i) ? '#2ecc71': '#b8960f'}`}}
 
     render() {
 
@@ -96,7 +111,7 @@ class ImageWall extends Component {
 
                 </div>) : null}
 
-                <div id="FavModal" className="FavModal" onClick={this.exitModal}>
+                <div id="FavModal" className="FavModal">
                     <div className="FavModal-content">
                         <span className="closeFavModal" onClick={this.closeFavModal}>&times;</span>
                         <div className='DescAddTitle'>Type Your Description Here:</div>
