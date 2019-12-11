@@ -4,7 +4,6 @@ import './Components/Favourites/favourites.css';
 import './Components/ImageWall/imagewall.css';
 import axios from 'axios';
 import { observer, inject } from 'mobx-react'
-import Search from './Components/Search/search'
 import Favourites from './Components/Favourites/favourites';
 import ImageWall from './Components/ImageWall/imagewall';
 
@@ -54,7 +53,8 @@ class App extends Component {
       }
     }
     else if (hits.length == 0) {
-      alert('No Results Found :(')
+      let modal = document.getElementById("NoResModal");
+      modal.style.display = "block";
     }
     else {
       for (let url of hits) {
@@ -62,6 +62,11 @@ class App extends Component {
       }
     }
     await this.setState({ images: images })
+  }
+
+  closeAlert = async () => {
+    let modal = document.getElementById("NoResModal");
+    modal.style.display = "none";
   }
 
 
@@ -78,6 +83,13 @@ class App extends Component {
           <div className='picBoxes'>
             <ImageWall images={this.state.images} />
             <Favourites />
+          </div>
+        </div>
+
+        <div id="NoResModal" className="NoResModal" onClick={this.closeAlert} >
+          <div className="alertModal-content">
+            <span className="close" onClick={this.closeAlert}>&times;</span>
+            <div className="NoResModalLine">No Results Found :(</div>
           </div>
         </div>
       </>

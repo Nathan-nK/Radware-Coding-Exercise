@@ -22,25 +22,6 @@ class ImageWall extends Component {
         PicPopup.style.display = "block";
     }
 
-
-    checkIfInFaves = async (url) => {
-        // document.getElementsByClassName("fa-star").style.color = "blue";
-        if (await this.props.favestore.favList.find((o) => o.url === url)) {
-            console.log(true)
-            let pos = true;
-            return pos
-
-        }
-
-        else {
-            console.log(false)
-            let neg = false
-            return neg
-        }
-
-
-    }
-
     OpenFavTab = async (e) => {
         for (let i = 0; i < this.props.favestore.favList.length; i++) {
             if (this.props.favestore.favList[i].url == e.target.getAttribute("value")) {
@@ -90,8 +71,6 @@ class ImageWall extends Component {
         let modal = document.getElementById("PicPopup");
         modal.style.display = "none";
     }
-
-    // style={{color: `${this.checkIfInFaves(i) ? '#2ecc71': '#b8960f'}`}}
 
     render() {
 
